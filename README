@@ -16,11 +16,14 @@ Example
 MODEL
 @client = Client.find(params[:id])
 
-To get a verification status
+To get the verification status
 @client.verification_status
 
-To set a verification status
+To set the verification status
 @client.set_as_verified 
+
+To check the verification status
+@client.is_verified? 
 
 <%= client.verification_status %>
 <%= link_to 'Mark as verified', {:controller => 'clients', :action => 'mark_as_verified', :id => client.id} %>
