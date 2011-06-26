@@ -1,13 +1,28 @@
 ActsAsVerified
 ==============
 
-Introduction goes here.
+Step 1 : Install Plugin
+ruby script/plugin install git@github.com:ripan/acts_as_verified.git
 
+Step 2 : Generate Migration
+ruby script/generate acts_as_verified_migration
+
+Step 3 : Add to model
+acts_as_verified
 
 Example
 =======
 
-Example goes here.
+MODEL
+@client = Client.find(params[:id])
 
+To get a verification status
+@client.verification_status
 
-Copyright (c) 2011 [name of plugin creator], released under the MIT license
+To set a verification status
+@client.set_as_verified 
+
+<%= client.verification_status %>
+<%= link_to 'Mark as verified', {:controller => 'clients', :action => 'mark_as_verified', :id => client.id} %>
+
+Copyright (c) 2011 [ripan], released under the MIT license
